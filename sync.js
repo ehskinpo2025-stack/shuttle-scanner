@@ -18,17 +18,17 @@ document.getElementById("syncBtn").onclick = async () => {
         return;
     }
 
+    let formData = new FormData();
+    formData.append("logs", JSON.stringify(logs));
+
     try{
         const res = await fetch(API,{
             method:"POST",
-            body: JSON.stringify({logs: logs}),
-            headers:{
-                "Content-Type":"application/json"
-            }
+            body: formData
         });
 
         const text = await res.text();
-        alert("SERVER RESPONSE:\n" + text);
+        alert("Upload success");
 
         localStorage.removeItem("logs");
 
