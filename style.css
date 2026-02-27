@@ -16,7 +16,7 @@ header{
     border:5px solid white;
     border-radius:20px;
 }
-
+x
 #result{
     margin-top:15px;
     padding:20px;
@@ -28,8 +28,41 @@ header{
 .denied{ background:#dc2626; }
 .neutral{ background:#334155; }
 
-button, select{
+button{
+    margin:10px;
+    padding:12px 18px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+/* Offline Mode button */
+#downloadDB{
+    background:#2563eb;
+    color:white;
+}
+#downloadDB:hover{
+    background:#1d4ed8;
+}
+
+/* Upload Logs button */
+#syncBtn{
+    background:#f59e0b;
+    color:black;
+}
+#syncBtn:hover{
+    background:#d97706;
+}
+
+/* Route dropdown */
+select{
     margin:10px;
     padding:12px;
-    font-size:16px;
+    border-radius:10px;
+    border:none;
+    background:#1f2937;
+    color:white;
 }
