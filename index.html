@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shuttle Routes Scanner</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+
+<body>
+
+<header>
+    <h1>Shuttle Routes Scanner</h1>
+    <button id="downloadDB">OFFLINE MODE</button>
+    <select id="routeSelect"></select>
+</header>
+
+<div id="reader"></div>
+
+<div id="result" class="neutral">
+    <h2 id="status">READY</h2>
+    <p>Name: <span id="name"></span></p>
+    <p>Dept: <span id="dept"></span></p>
+    <p>Station: <span id="station"></span></p>
+    <p>Route: <span id="route"></span></p>
+</div>
+
+<button id="syncBtn">UPLOAD DAILY LOGS</button>
+
+<script src="db.js"></script>
+<script src="sync.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
