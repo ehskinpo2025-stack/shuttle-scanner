@@ -33,3 +33,29 @@ button, select{
     padding:12px;
     font-size:16px;
 }
+#gateScreen{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.passScreen{ background:#16a34a; }
+.failScreen{ background:#dc2626; }
+
+#gateStatus{
+    font-size:120px;
+    font-weight:bold;
+}
+
+#gateName{
+    font-size:40px;
+    margin-top:20px;
+}
+
+.hidden{ display:none; }
