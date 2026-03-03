@@ -1,4 +1,4 @@
-const API="https://script.google.com/macros/s/AKfycbxAZoRF--h6xKLrQL8CghpQ1GjRRLUV6T8QwPxDLxhZptd9Xjkqai6o8SLy0y7ke5lg/exec";
+const API= "https://script.google.com/macros/s/AKfycbxAZoRF--h6xKLrQL8CghpQ1GjRRLUV6T8QwPxDLxhZptd9Xjkqai6o8SLy0y7ke5lg/exec";
 
 document.getElementById("downloadDB").onclick=async()=>{
     const res=await fetch(API+"?action=employees");
@@ -35,4 +35,5 @@ document.getElementById("syncBtn").onclick = async () => {
     }catch(err){
         alert("UPLOAD FAILED:\n" + err);
     }
+
 };
