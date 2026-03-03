@@ -12,11 +12,11 @@ header{
 
 #reader{
     width:95%;
-    margin:auto;
+    margin:20px auto;
     border:5px solid white;
     border-radius:20px;
+    min-height:320px;
 }
-x
 #result{
     margin-top:15px;
     padding:20px;
