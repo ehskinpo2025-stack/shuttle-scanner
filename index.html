@@ -10,17 +10,21 @@
 
 <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
-</script>
+
 <body>
 
 <header>
     <h1>Shuttle Routes Scanner</h1>
+
     <button id="downloadDB">OFFLINE MODE</button>
+
     <select id="routeSelect"></select>
+
+    <!-- NEW: BUS DETAILS SECTION -->
+    <div class="bus-info">
+        <input type="text" id="driverName" placeholder="Bus Driver Name" required>
+        <input type="text" id="busNo" placeholder="Bus No." required>
+    </div>
 </header>
 
 <div id="reader"></div>
@@ -34,6 +38,12 @@ if ("serviceWorker" in navigator) {
 </div>
 
 <button id="syncBtn">UPLOAD DAILY LOGS</button>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
 
 <script src="db.js"></script>
 <script src="sync.js"></script>

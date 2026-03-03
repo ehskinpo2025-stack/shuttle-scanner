@@ -57,6 +57,7 @@ button{
     background:#d97706;
 }
 
+
 /* Route dropdown */
 select{
     margin:10px;
@@ -65,4 +66,17 @@ select{
     border:none;
     background:#1f2937;
     color:white;
+}
+.bus-info {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:10px;
+}
+
+.bus-info input {
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    font-size:14px;
 }
