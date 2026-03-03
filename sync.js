@@ -1,39 +1,45 @@
-const API= "https://script.google.com/macros/s/AKfycbxAZoRF--h6xKLrQL8CghpQ1GjRRLUV6T8QwPxDLxhZptd9Xjkqai6o8SLy0y7ke5lg/exec";
+const API="https://script.google.com/macros/s/AKfycbxAZoRF--h6xKLrQL8CghpQ1GjRRLUV6T8QwPxDLxhZptd9Xjkqai6o8SLy0y7ke5lg/exec";
 
-document.getElementById("downloadDB").onclick=async()=>{
-    const res=await fetch(API+"?action=employees");
-    const data=await res.json();
-    saveEmployees(data);
-    alert("Database downloaded. You can now scan offline.");
-};
+document.addEventListener("DOMContentLoaded", function(){
 
-document.getElementById("syncBtn").onclick = async () => {
+    document.getElementById("downloadDB").onclick = async () => {
+        try {
+            const res = await fetch(API + "?action=employees");
+            const data = await res.json();
+            saveEmployees(data);
+            alert("Database downloaded. You can now scan offline.");
+        } catch(err){
+            alert("Download failed:\n" + err);
+        }
+    };
 
-    if(!confirm("Upload today's logs?")) return;
+    document.getElementById("syncBtn").onclick = async () => {
 
-    let logs = JSON.parse(localStorage.getItem("logs") || "[]");
+        if(!confirm("Upload today's logs?")) return;
 
-    if(logs.length === 0){
-        alert("No logs saved");
-        return;
-    }
+        let logs = JSON.parse(localStorage.getItem("logs") || "[]");
 
-    let formData = new FormData();
-    formData.append("logs", JSON.stringify(logs));
+        if(logs.length === 0){
+            alert("No logs saved");
+            return;
+        }
 
-    try{
-        const res = await fetch(API,{
-            method:"POST",
-            body: formData
-        });
+        let formData = new FormData();
+        formData.append("logs", JSON.stringify(logs));
 
-        const text = await res.text();
-        alert("Upload success");
+        try{
+            const res = await fetch(API,{
+                method:"POST",
+                body: formData
+            });
 
-        localStorage.removeItem("logs");
+            const text = await res.text();
+            alert("Upload success");
+            localStorage.removeItem("logs");
 
-    }catch(err){
-        alert("UPLOAD FAILED:\n" + err);
-    }
+        }catch(err){
+            alert("UPLOAD FAILED:\n" + err);
+        }
+    };
 
-};
+});
